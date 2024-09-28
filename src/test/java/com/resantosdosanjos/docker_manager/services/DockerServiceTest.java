@@ -30,7 +30,7 @@ class DockerServiceTest {
     void testListContainers() {
         ListContainersCmd listContainersCmd = Mockito.mock(ListContainersCmd.class);
         Container container = new Container();
-        List<Container> mockContainers = Arrays.asList(container);
+        List<Container> mockContainers = List.of(container);
 
         when(dockerClient.listContainersCmd()).thenReturn(listContainersCmd);
         when(listContainersCmd.withShowAll(true)).thenReturn(listContainersCmd);
@@ -48,7 +48,7 @@ class DockerServiceTest {
     void testListImages() {
         ListImagesCmd listImagesCmd = Mockito.mock(ListImagesCmd.class);
         Image image = new Image();
-        List<Image> mockImages = Arrays.asList(image);
+        List<Image> mockImages = List.of(image);
 
         when(dockerClient.listImagesCmd()).thenReturn(listImagesCmd);
         when(listImagesCmd.exec()).thenReturn(mockImages);
